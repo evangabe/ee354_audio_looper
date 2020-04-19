@@ -32,7 +32,7 @@ module main_ttt (
 	reg [26:0]	    DIV_CLK;
 	wire 			UP, DOWN, L, R;										//wire aliasing control for buttons
 	wire 			Q_IDLE, Q_PLAYER, Q_COMPUTER, Q_DONE;				//state signals
-	wire 			winner_found, full, start, legal_move, pc;			//state flags
+	wire 			winner_found, full, start, legal_move, pc, ack;			//state flags
 	reg [2:0] 		state_num;
 	reg [2:0] 		state_sum;
 	wire [3:0] 		selected_state;
@@ -70,6 +70,7 @@ module main_ttt (
 	sm_ttt (
 		.Clk(sys_clk),
 		.reset(reset),
+		.ack(ack),
 		.Q_IDLE(Q_IDLE),
 		.Q_PLAYER(Q_PLAYER), 
 		.Q_COMPUTER(Q_COMPUTER),
